@@ -20,16 +20,19 @@ public class GUI {
 	private JMenuItem save;
 	private JMenuItem remove;
 	private JMenuItem edit;
+	private JMenuItem Import;
 	
 	private JList<String> list;
 	private DefaultListModel<String> lm;
 	private JScrollPane listScroller;
 	
 	private ButtonListener bl;
+	private String importString;
+	
 	
 	public GUI(){
 		book = new AddressBook();
-		
+		importString = "Name: Zedd Number: 1006543211 Address: FakeAddress\nName: Ronne Number: 1008844444 Address: Place";
 		book.addBuddy("Robert","100887093","home", 21);
 		book.addBuddy("Fred","100888999","House", 10);
 		
@@ -61,6 +64,9 @@ public class GUI {
 		edit.addActionListener(bl);
 		menu.add(edit);
 		
+		Import = new JMenuItem("Import");
+		Import.addActionListener(bl);
+		menu.add(Import);
 		showBuddies();
 		
 		frame.setJMenuBar(menuBar);
@@ -153,6 +159,9 @@ public class GUI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public void Import(){
+		book.Import(importString);
 	}
 	
 	public static void main(String args[]){

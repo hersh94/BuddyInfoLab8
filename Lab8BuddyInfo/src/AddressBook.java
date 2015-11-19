@@ -7,7 +7,7 @@ public class AddressBook {
 	String importString;
 	public AddressBook(){
 		buddies = new ArrayList<>();
-		importString = "Name: Zedd Number: 1006543211 Address: FakeAddress";
+		
 	}
 	
 	public void addBuddy(String name, String number, String address, int age){
@@ -51,10 +51,14 @@ public class AddressBook {
 		return false;
 	}
 	public void Import(String buddyString){
-		String[] lines = buddyString.split(System.getProperty("line.separator"));
+		String[] lines = buddyString.split("\n");
+		System.out.println(lines[0]+"\n"+lines[1]);
+		String[] temp;
 		for(String l: lines){
-		//	this.addBuddy(l., number, address, age);
-			
+			//split appropriate attributes
+			temp = l.split("\\w{4,7}:\\s");
+			System.out.println(temp[1]+temp[2]+temp[3]);
+			this.addBuddy(temp[1], temp[2], temp[3], 18);
 		}
 	} 
 	

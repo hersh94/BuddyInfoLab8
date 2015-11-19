@@ -25,6 +25,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("Edit")){
 			gui.edit();
 		}
+		if(e.getActionCommand().equals("Import")){
+			gui.Import();
+		}
 		gui.showBuddies();
 	}
 
